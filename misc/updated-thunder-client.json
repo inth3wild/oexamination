@@ -1,0 +1,572 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "oexamination",
+    "dateExported": "2023-08-16T15:33:25.511Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "db3d243d-f476-4a79-b120-8db8646fa6fe",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2023-08-16T14:16:33.030Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "0af805a2-d8a8-41d1-88de-f727930d790a",
+            "name": "Exam",
+            "containerId": "",
+            "created": "2023-08-16T14:17:56.135Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
+            "name": "User",
+            "containerId": "",
+            "created": "2023-08-16T14:23:46.025Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "fefc3c84-312e-486c-a4b3-5300adb19cba",
+            "name": "Answer",
+            "containerId": "",
+            "created": "2023-08-16T14:32:50.316Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "7bc0d45a-023a-485c-b8e4-7c0ff2f8cf35",
+            "name": "Misc",
+            "containerId": "",
+            "created": "2023-08-16T15:11:24.844Z",
+            "sortNum": 50000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "feb0c777-e087-49df-8d3a-b30f7e02f448",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "db3d243d-f476-4a79-b120-8db8646fa6fe",
+            "name": "signup",
+            "url": "http://127.0.0.1:5000/api/signup",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-08-16T12:01:59.709Z",
+            "modified": "2023-08-16T14:03:36.868Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\":\"test1@email.com\",\n    \"password\":\"12345678\",\n    \"name\":\"Jateen Mohanty\",\n    \"userinfo\":\"I am a Student\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "32b195c1-c479-478e-a150-c76af8e97ad0",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
+            "name": "user-update",
+            "url": "http://127.0.0.1:5000/api/user/{{userid}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-08-16T12:01:59.712Z",
+            "modified": "2023-08-16T15:09:05.901Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\":\"Naveen Mohanty\",\n    \"userinfo\": \"I am student....\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "aeea5aa3-f2b5-426b-87af-0b6c9be70035",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
+            "name": "get-exam",
+            "url": "http://127.0.0.1:5000/api/exam/{{examid}}/{{userid}}",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-16T12:01:59.717Z",
+            "modified": "2023-08-16T15:07:51.400Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "65bd28d5-ddf1-4359-82d2-ed5110c07101",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "fefc3c84-312e-486c-a4b3-5300adb19cba",
+            "name": "answer-create",
+            "url": "http://127.0.0.1:5000/api/answer/{{userid}}/{{examid}}",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-16T12:01:59.721Z",
+            "modified": "2023-08-16T15:10:13.969Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c7bdcfe4-ce71-4a6b-9518-c14b6704558c",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "7bc0d45a-023a-485c-b8e4-7c0ff2f8cf35",
+            "name": "get-ans-byHost",
+            "url": "http://127.0.0.1:5000/api/host/answer/{{userid}}?exam_id={{examid}}&candidate_id=60c4d04c3112cf3178918d0d",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-16T12:01:59.723Z",
+            "modified": "2023-08-16T15:11:47.740Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "exam_id",
+                    "value": "{{examid}}",
+                    "isPath": false
+                },
+                {
+                    "name": "candidate_id",
+                    "value": "60c4d04c3112cf3178918d0d",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8bca61fa-3441-444c-95d8-e28264b053d4",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "db3d243d-f476-4a79-b120-8db8646fa6fe",
+            "name": "signin",
+            "url": "http://127.0.0.1:5000/api/signin",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-08-16T12:01:59.711Z",
+            "modified": "2023-08-16T15:07:07.464Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\":\"user1@test.com\",\n    \"password\":\"123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8b2bc7aa-4895-408e-9f42-075c7cdc8d1a",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
+            "name": "exam-create",
+            "url": "http://127.0.0.1:5000/api/exam/{{userid}}",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-08-16T12:01:59.715Z",
+            "modified": "2023-08-16T15:08:13.622Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"examtitle\":\"MCC-10\",\n    \"examinfo\":\"This is a test info 10\",\n    \"startingtime\":\"Tue June 29 2021 12:00:00 GMT+0530 (India Standard Time)\",\n    \"endingtime\": \"Tue June 29 2021 12:30:00 GMT+0530 (India Standard Time)\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "920f6ab1-2acd-468e-b0d9-2f31312a9a72",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "fefc3c84-312e-486c-a4b3-5300adb19cba",
+            "name": "answer-edit",
+            "url": "http://127.0.0.1:5000/api/answer/{{userid}}/{{examid}}/{{answerid}}",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-08-16T12:01:59.722Z",
+            "modified": "2023-08-16T15:10:30.512Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"answers\":[{\"questionid\":\"60c89b513ec28c0ee7cb1159\",\"optionid\":\"60c89b513ec28c0ee7cb115b\"},{\"questionid\":\"60c89b513ec28c0ee7cb115c\",\"optionid\":\"60c89b513ec28c0ee7cb115e\"}]\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "791c0edc-038b-41aa-b8c4-d48ffddfe398",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
+            "name": "get All user",
+            "url": "http://127.0.0.1:5000/api/all/user/{{userid}}",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-16T12:01:59.725Z",
+            "modified": "2023-08-16T15:09:14.253Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a80c4a41-6072-4912-a007-295c20cba760",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "7bc0d45a-023a-485c-b8e4-7c0ff2f8cf35",
+            "name": "get-answer-of-candidate",
+            "url": "http://127.0.0.1:5000/api/candidate/answer/{{userid}}?answer_id={{answerid}}",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-16T15:02:46.042Z",
+            "modified": "2023-08-16T15:12:01.138Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "answer_id",
+                    "value": "{{answerid}}",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "86bde5ea-f0f3-471a-9290-84dd179bf495",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
+            "name": "get-user",
+            "url": "http://127.0.0.1:5000/api/user/{{userid}}",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2023-08-16T14:29:31.627Z",
+            "modified": "2023-08-16T15:09:22.634Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "dab85e50-01e4-44cb-a41f-ac7ef6b4af83",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "db3d243d-f476-4a79-b120-8db8646fa6fe",
+            "name": "signout",
+            "url": "http://127.0.0.1:5000/api/signout",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-08-16T12:01:59.713Z",
+            "modified": "2023-08-16T15:07:22.561Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "bf86e878-350d-4457-9853-46366439caa4",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
+            "name": "edit-exam",
+            "url": "http://127.0.0.1:5000/api/exam/{{examid}}/{{userid}}",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-08-16T12:01:59.719Z",
+            "modified": "2023-08-16T15:08:24.655Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"examtitle\": \"MCC-6\",\n    \"examinfo\": \"This is a test info 4\",\n  \"candidates\": [{ \"id\": \"60c4d04c3112cf3178918d0d\" }],\n  \"questions\": [\n      {\n        \"title\": \"How does pig do?\",\n        \"options\": [\n          {\n            \"option\": \"Oink\",\n            \"isanswer\": false\n          },\n          {\n            \"option\": \"poon\",\n            \"isanswer\": true\n          }\n        ],\n        \"mark\": 2\n      },\n      {\n        \"title\": \"How does dog do?\",\n        \"options\": [\n          {\n            \"option\": \"Oink oink\",\n            \"isanswer\": false\n          },\n          {\n            \"option\": \"bho bho\",\n            \"isanswer\": true\n          }\n        ],\n        \"mark\": 2\n      }\n    ]\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "70e1029b-2ffa-4e67-93a1-0195b6666a02",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
+            "name": "user-upcoming-exam",
+            "url": "http://127.0.0.1:5000/api/user/upcomingexam/{{userid}}",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-08-16T12:01:59.727Z",
+            "modified": "2023-08-16T15:09:29.962Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8d4612e7-1b28-4748-bccc-e93668c50585",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "7bc0d45a-023a-485c-b8e4-7c0ff2f8cf35",
+            "name": "host exam answers",
+            "url": "http://127.0.0.1:5000/api/host/answers/{{userid}}/{{examid}}",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-08-16T12:01:59.729Z",
+            "modified": "2023-08-16T15:12:17.909Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f33137ea-fba6-455a-8f14-08b5eeab0860",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "fefc3c84-312e-486c-a4b3-5300adb19cba",
+            "name": "answer-exit",
+            "url": "http://127.0.0.1:5000/api/answer/exit/{{userid}}/{{examid}}/{{answerid}}",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-08-16T14:34:27.405Z",
+            "modified": "2023-08-16T15:10:39.762Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"answers\":[{\"questionid\":\"60c89b513ec28c0ee7cb1159\",\"optionid\":\"60c89b513ec28c0ee7cb115b\"},{\"questionid\":\"60c89b513ec28c0ee7cb115c\",\"optionid\":\"60c89b513ec28c0ee7cb115e\"}]\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0c176c98-8997-4973-816d-ac990afba483",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "fefc3c84-312e-486c-a4b3-5300adb19cba",
+            "name": "get-all-ans",
+            "url": "http://127.0.0.1:5000/api/host/answers/{{userid}}/{{examid}}",
+            "method": "GET",
+            "sortNum": 37500,
+            "created": "2023-08-16T14:52:21.993Z",
+            "modified": "2023-08-16T15:10:48.298Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "90d86e28-8015-4595-a2b5-526b864bb018",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "db3d243d-f476-4a79-b120-8db8646fa6fe",
+            "name": "changepassword",
+            "url": "http://127.0.0.1:5000/api/changepassword/{{userid}}",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-08-16T12:01:59.714Z",
+            "modified": "2023-08-16T15:07:31.753Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"password\":\"123456789\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "422ac252-4689-4f33-bb80-055ce998e2c6",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
+            "name": "exam-delete",
+            "url": "http://127.0.0.1:5000/api/exam/delete/{{examid}}/{{userid}}",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-08-16T12:01:59.720Z",
+            "modified": "2023-08-16T15:08:34.912Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ba016959-858d-4ee5-aaeb-9a598fa45ae4",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
+            "name": "user-attained-exam",
+            "url": "http://127.0.0.1:5000/api/user/examattained/{{userid}}",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-08-16T12:01:59.728Z",
+            "modified": "2023-08-16T15:09:38.703Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b8961084-c583-4a2f-956d-95b311bf06f3",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "7bc0d45a-023a-485c-b8e4-7c0ff2f8cf35",
+            "name": "get candidate answer(host and candidate)",
+            "url": "http://127.0.0.1:5000/api/candidate/answer/{{userid}}/{{examid}}",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-08-16T12:01:59.730Z",
+            "modified": "2023-08-16T15:12:33.343Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"candidateid\":\"60d6b2e3462fd315153397ff\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "41d63571-c506-4a8d-9055-ed8f58af05d1",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "fefc3c84-312e-486c-a4b3-5300adb19cba",
+            "name": "get-answer-byCandidate",
+            "url": "http://127.0.0.1:5000/api/candidate/answer/{{userid}}/{{examid}}?answer_id={{answerid}}",
+            "method": "GET",
+            "sortNum": 47500,
+            "created": "2023-08-16T12:01:59.724Z",
+            "modified": "2023-08-16T15:10:57.363Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "answer_id",
+                    "value": "{{answerid}}",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b9ea0caf-0911-4505-a512-c596ad38d0a8",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
+            "name": "get-user-upcoming-exam",
+            "url": "http://127.0.0.1:5000/api/exam/hosted/upcoming/{{userid}}",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-08-16T12:01:59.716Z",
+            "modified": "2023-08-16T15:08:44.626Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9baf70dc-c810-4565-bfb0-d83e6f8da129",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
+            "name": "get-user-past-exams",
+            "url": "http://127.0.0.1:5000/api/exam/hosted/past/{{userid}}",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-08-16T12:01:59.718Z",
+            "modified": "2023-08-16T15:08:53.166Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        }
+    ]
+}
