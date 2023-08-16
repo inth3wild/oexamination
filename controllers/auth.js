@@ -19,7 +19,7 @@ exports.signup = (req, res) => {
     if (err) {
       return res.status(400).json({
         success: false,
-        error: "NOT able to save user in DB",
+        error: `NOT able to save user in DB. (${err})`,
       });
     }
     res.json({
@@ -77,6 +77,7 @@ exports.signin = (req, res) => {
     });
   }
 };
+
 exports.changepswd = (req, res) => {
   const errors = validationResult(req);
   const { password } = req.body;
@@ -110,6 +111,7 @@ exports.changepswd = (req, res) => {
     });
   });
 };
+
 exports.signout = (req, res) => {
   res.clearCookie("token");
   res.json({
@@ -129,6 +131,7 @@ exports.isSignedIn = expressJwt({
 exports.isAuthenticated = (req, res, next) => {
   try {
     let checker = req.profile && req.auth && req.profile._id == req.auth._id;
+    console.log(`Checker ==> ${checker} `);
     if (!checker) {
       return res.status(403).json({
         success: false,

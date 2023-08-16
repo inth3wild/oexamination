@@ -17,8 +17,8 @@ router.post(
   [
     check("name", "name should be at least 3 char").isLength({ min: 3 }),
     check("email", "email is required").isEmail(),
-    check("password", "password should be at least 3 char").isLength({
-      min: 3,
+    check("password", "Minimum password length is 8 characters").isLength({
+      min: 8,
     }),
   ],
   signup
@@ -28,15 +28,22 @@ router.post(
   "/signin",
   [
     check("email", "email is required").isEmail(),
-    check("password", "password field is required").isLength({ min: 9 }),
+    check("password", "Minimum password length is 8 characters").isLength({
+      min: 8,
+    }),
   ],
   signin
 );
 
-router.get("/signout", signout);
+router.get("/signout", isSignedIn, isAuthenticated, signout);
+
 router.put(
   "/changepassword/:userId",
-  [check("password", "password is required").isLength({ min: 9 })],
+  [
+    check("password", "Minimum password length is 8 characters").isLength({
+      min: 8,
+    }),
+  ],
   getUserById,
   isSignedIn,
   isAuthenticated,
