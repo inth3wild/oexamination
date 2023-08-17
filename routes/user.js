@@ -30,4 +30,5 @@ router.get(
   isAuthenticated,
   getUserAttainedExam
 );
+
 module.exports = router;

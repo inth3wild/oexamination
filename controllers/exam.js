@@ -19,7 +19,7 @@ exports.getExamById = (req, res, next, id) => {
 
 exports.getExam = (req, res) => {
   const { exam, profile } = req;
-  if (String(req.profile._id) == String(req.exam.host)) {
+  if (String(req.profile._id) === String(req.exam.host)) {
     return res.json({ success: true, data: req.exam });
   } else if (
     req.exam.candidates.find(

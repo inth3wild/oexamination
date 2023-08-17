@@ -8,7 +8,7 @@ const {
   changepswd,
   isAuthenticated,
 } = require("../controllers/auth");
-const { getUserById } = require("../controllers/user");
+const { getUserById, getUser } = require("../controllers/user");
 
 router.param("userId", getUserById);
 
@@ -35,7 +35,7 @@ router.post(
   signin
 );
 
-router.get("/signout", isSignedIn, isAuthenticated, signout);
+router.get("/signout", signout);
 
 router.put(
   "/changepassword/:userId",

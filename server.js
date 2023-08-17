@@ -36,7 +36,7 @@ app.use(cors());
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("Welcome to Oexamination Database");
+  res.send("Welcome to RuleBorn's CBT Database 🚀");
 });
 app.use("/api", authRoutes);
 app.use("/api", examRoutes);

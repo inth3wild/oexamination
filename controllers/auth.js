@@ -116,7 +116,7 @@ exports.signout = (req, res) => {
   res.clearCookie("token");
   res.json({
     success: true,
-    message: "User signout successfully",
+    message: "User signed out successfully",
   });
 };
 
@@ -125,17 +125,18 @@ exports.isSignedIn = expressJwt({
   secret: process.env.SECRET,
   userProperty: "auth",
   algorithms: ["HS256"],
+  credentialsRequired: false,
 });
 
 //custom middlewares
 exports.isAuthenticated = (req, res, next) => {
   try {
     let checker = req.profile && req.auth && req.profile._id == req.auth._id;
-    console.log(`Checker ==> ${checker} `);
+
     if (!checker) {
       return res.status(403).json({
         success: false,
-        error: "ACCESS DENIED",
+        error: "ACCESS DENIED: Make sure you are signed in",
       });
     }
     next();

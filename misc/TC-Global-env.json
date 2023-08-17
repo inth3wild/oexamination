@@ -1,0 +1,21 @@
+{
+    "client": "Thunder Client",
+    "environmentName": "(Global Env)",
+    "dateExported": "2023-08-17T13:20:24.295Z",
+    "version": "1.0",
+    "global": true,
+    "variables": [
+        {
+            "name": "myJwt",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGRjZDczODdjZmViYjNlNTQ5ZmEyODciLCJpYXQiOjE2OTIyNjYwMTF9.yqfKcKi-nRP6Rc4dqnNIW06sVkYgGfSWml95j6WlKGE"
+        },
+        {
+            "name": "myId",
+            "value": "64dcd7387cfebb3e549fa287"
+        },
+        {
+            "name": "myExamId",
+            "value": "64de0bbaba007b3418bb4c2b"
+        }
+    ]
+}
