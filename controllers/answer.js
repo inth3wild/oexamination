@@ -72,6 +72,7 @@ exports.editAnswer = async (req, res) => {
           String(v.examid) === String(exam._id) &&
           String(v.answerid) === String(answer._id)
       ) &&
+      // now > start && ***(Original), can only edit answer when exam start date has passed
       now > start &&
       now < end &&
       !answer.exited
