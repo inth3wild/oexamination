@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "oexamination",
-    "dateExported": "2023-08-17T13:21:29.370Z",
+    "dateExported": "2023-08-17T14:30:07.770Z",
     "version": "1.1",
     "folders": [
         {
@@ -532,11 +532,11 @@
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
             "name": "get-user-upcoming-exam",
-            "url": "http://127.0.0.1:5000/api/exam/hosted/upcoming/{{userid}}",
+            "url": "http://127.0.0.1:5000/api/exam/hosted/upcoming/{{myId}}",
             "method": "GET",
             "sortNum": 50000,
             "created": "2023-08-16T12:01:59.716Z",
-            "modified": "2023-08-16T15:08:44.626Z",
+            "modified": "2023-08-17T13:27:50.545Z",
             "headers": [
                 {
                     "name": "Content-Type",
@@ -546,7 +546,7 @@
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "{{token}}"
+                "bearer": "{{myJwt}}"
             },
             "tests": []
         },
@@ -555,16 +555,16 @@
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
             "name": "get-user-past-exams",
-            "url": "http://127.0.0.1:5000/api/exam/hosted/past/{{userid}}",
+            "url": "http://127.0.0.1:5000/api/exam/hosted/past/{{myId}}",
             "method": "GET",
             "sortNum": 60000,
             "created": "2023-08-16T12:01:59.718Z",
-            "modified": "2023-08-16T15:08:53.166Z",
+            "modified": "2023-08-17T14:28:33.870Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "{{token}}"
+                "bearer": "{{myJwt}}"
             },
             "tests": []
         }
