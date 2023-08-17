@@ -1,8 +1,11 @@
 Features:
-    1 Page for admin to extract all kinds of data
+    1. Page for admin to extract all kinds of data
         to download. (eg data users, exams etc)
+    2. Admin routes and controllers
 
 
 
 To do:
     1. Edit sign in controller to unique user id only
+    2. Make sure all UPDATEABLE controllers only update necessary fields in the DB
+        eg: update-user controller

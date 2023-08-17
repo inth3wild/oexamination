@@ -41,7 +41,7 @@ router.get(
   getUserUpcomingHostedExam
 );
 
-// To get user hotsed past examinations.
+// To get user hosted past examinations.
 router.get(
   "/exam/hosted/past/:userId",
   isSignedIn,

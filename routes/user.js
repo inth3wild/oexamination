@@ -11,12 +11,16 @@ const {
 
 router.param("userId", getUserById);
 
+// Get user
 router.get("/user/:userId", isSignedIn, isAuthenticated, getUser);
 
-router.post("/user/:userId", isSignedIn, isAuthenticated, updateUser);
-
+// Get all users
 router.get("/all/user/:userId", isSignedIn, isAuthenticated, getUsers);
 
+// Update user
+router.post("/user/:userId", isSignedIn, isAuthenticated, updateUser);
+
+// Get user upcoming exam
 router.get(
   "/user/upcomingexam/:userId",
   isSignedIn,
@@ -24,6 +28,7 @@ router.get(
   getUserUpcomingExam
 );
 
+// Get user attained exam
 router.get(
   "/user/examattained/:userId",
   isSignedIn,

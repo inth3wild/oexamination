@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "oexamination",
-    "dateExported": "2023-08-17T14:30:07.770Z",
+    "dateExported": "2023-08-17T16:23:29.072Z",
     "version": "1.1",
     "folders": [
         {
@@ -42,6 +42,70 @@
     ],
     "requests": [
         {
+            "_id": "86bde5ea-f0f3-471a-9290-84dd179bf495",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
+            "name": "get-user",
+            "url": "http://127.0.0.1:5000/api/user/{{myId}}",
+            "method": "GET",
+            "sortNum": 2500,
+            "created": "2023-08-16T14:29:31.627Z",
+            "modified": "2023-08-17T15:01:00.295Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{myJwt}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "791c0edc-038b-41aa-b8c4-d48ffddfe398",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
+            "name": "get-all-users",
+            "url": "http://127.0.0.1:5000/api/all/user/{{myId}}",
+            "method": "GET",
+            "sortNum": 5000,
+            "created": "2023-08-16T12:01:59.725Z",
+            "modified": "2023-08-17T15:23:48.455Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{myJwt}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8b2bc7aa-4895-408e-9f42-075c7cdc8d1a",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
+            "name": "create-exam",
+            "url": "http://127.0.0.1:5000/api/exam/{{myId}}",
+            "method": "POST",
+            "sortNum": 5312.5,
+            "created": "2023-08-16T12:01:59.715Z",
+            "modified": "2023-08-17T11:59:53.185Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"examtitle\":\"RuleBorn 101\",\n    \"examinfo\":\"This is a test info 10\",\n    \"startingtime\":\"Thu Aug 18 2023 02:00:40 GMT-0700 (Pacific Daylight Time)\",\n    \"endingtime\": \"Thu Aug 18 2023 02:05:40 GMT-0700 (Pacific Daylight Time)\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{myJwt}}"
+            },
+            "tests": []
+        },
+        {
             "_id": "feb0c777-e087-49df-8d3a-b30f7e02f448",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "db3d243d-f476-4a79-b120-8db8646fa6fe",
@@ -69,12 +133,12 @@
             "_id": "32b195c1-c479-478e-a150-c76af8e97ad0",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
-            "name": "user-update",
-            "url": "http://127.0.0.1:5000/api/user/{{userid}}",
+            "name": "update-user",
+            "url": "http://127.0.0.1:5000/api/user/{{myId}}",
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-08-16T12:01:59.712Z",
-            "modified": "2023-08-16T15:09:05.901Z",
+            "modified": "2023-08-17T15:51:07.200Z",
             "headers": [
                 {
                     "name": "Content-Type",
@@ -84,27 +148,9 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"name\":\"Naveen Mohanty\",\n    \"userinfo\": \"I am student....\"\n}",
+                "raw": "{\n    \"name\":\"Tochis\"\n}",
                 "form": []
             },
-            "auth": {
-                "type": "bearer",
-                "bearer": "{{token}}"
-            },
-            "tests": []
-        },
-        {
-            "_id": "aeea5aa3-f2b5-426b-87af-0b6c9be70035",
-            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
-            "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
-            "name": "get-exam",
-            "url": "http://127.0.0.1:5000/api/exam/{{myExamId}}/{{myId}}",
-            "method": "GET",
-            "sortNum": 10000,
-            "created": "2023-08-16T12:01:59.717Z",
-            "modified": "2023-08-17T11:58:25.355Z",
-            "headers": [],
-            "params": [],
             "auth": {
                 "type": "bearer",
                 "bearer": "{{myJwt}}"
@@ -159,6 +205,24 @@
             "tests": []
         },
         {
+            "_id": "aeea5aa3-f2b5-426b-87af-0b6c9be70035",
+            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
+            "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
+            "name": "get-exam",
+            "url": "http://127.0.0.1:5000/api/exam/{{myExamId}}/{{myId}}",
+            "method": "GET",
+            "sortNum": 10625,
+            "created": "2023-08-16T12:01:59.717Z",
+            "modified": "2023-08-17T11:58:25.355Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{myJwt}}"
+            },
+            "tests": []
+        },
+        {
             "_id": "8bca61fa-3441-444c-95d8-e28264b053d4",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "db3d243d-f476-4a79-b120-8db8646fa6fe",
@@ -179,34 +243,6 @@
                 "type": "json",
                 "raw": "{\n    \"email\":\"tochi@email.com\",\n    \"password\":\"12345678\"\n}",
                 "form": []
-            },
-            "tests": []
-        },
-        {
-            "_id": "8b2bc7aa-4895-408e-9f42-075c7cdc8d1a",
-            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
-            "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
-            "name": "create-exam",
-            "url": "http://127.0.0.1:5000/api/exam/{{myId}}",
-            "method": "POST",
-            "sortNum": 20000,
-            "created": "2023-08-16T12:01:59.715Z",
-            "modified": "2023-08-17T11:59:53.185Z",
-            "headers": [
-                {
-                    "name": "Content-Type",
-                    "value": "application/json"
-                }
-            ],
-            "params": [],
-            "body": {
-                "type": "json",
-                "raw": "{\n    \"examtitle\":\"RuleBorn 101\",\n    \"examinfo\":\"This is a test info 10\",\n    \"startingtime\":\"Thu Aug 18 2023 02:00:40 GMT-0700 (Pacific Daylight Time)\",\n    \"endingtime\": \"Thu Aug 18 2023 02:05:40 GMT-0700 (Pacific Daylight Time)\"\n}",
-                "form": []
-            },
-            "auth": {
-                "type": "bearer",
-                "bearer": "{{myJwt}}"
             },
             "tests": []
         },
@@ -234,24 +270,6 @@
             "tests": []
         },
         {
-            "_id": "791c0edc-038b-41aa-b8c4-d48ffddfe398",
-            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
-            "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
-            "name": "get All user",
-            "url": "http://127.0.0.1:5000/api/all/user/{{userid}}",
-            "method": "GET",
-            "sortNum": 20000,
-            "created": "2023-08-16T12:01:59.725Z",
-            "modified": "2023-08-16T15:09:14.253Z",
-            "headers": [],
-            "params": [],
-            "auth": {
-                "type": "bearer",
-                "bearer": "{{token}}"
-            },
-            "tests": []
-        },
-        {
             "_id": "a80c4a41-6072-4912-a007-295c20cba760",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "7bc0d45a-023a-485c-b8e4-7c0ff2f8cf35",
@@ -272,24 +290,6 @@
             "auth": {
                 "type": "bearer",
                 "bearer": "{{token}}"
-            },
-            "tests": []
-        },
-        {
-            "_id": "86bde5ea-f0f3-471a-9290-84dd179bf495",
-            "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
-            "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
-            "name": "get-user",
-            "url": "http://127.0.0.1:5000/api/user/64dcd7387cfebb3e549fa287",
-            "method": "GET",
-            "sortNum": 25000,
-            "created": "2023-08-16T14:29:31.627Z",
-            "modified": "2023-08-17T09:09:44.867Z",
-            "headers": [],
-            "params": [],
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGRjZDczODdjZmViYjNlNTQ5ZmEyODciLCJpYXQiOjE2OTIyNjAyMTV9.YnzcrOcTQUOPnvGtjpn33ElcLxl0fC2qu95WW7vFI2E"
             },
             "tests": []
         },
@@ -343,17 +343,17 @@
             "_id": "70e1029b-2ffa-4e67-93a1-0195b6666a02",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
-            "name": "user-upcoming-exam",
-            "url": "http://127.0.0.1:5000/api/user/upcomingexam/{{userid}}",
+            "name": "get-user-upcoming-exam",
+            "url": "http://127.0.0.1:5000/api/user/upcomingexam/{{myId}}",
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-08-16T12:01:59.727Z",
-            "modified": "2023-08-16T15:09:29.962Z",
+            "modified": "2023-08-17T16:07:38.962Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "{{token}}"
+                "bearer": "{{myJwt}}"
             },
             "tests": []
         },
@@ -448,7 +448,7 @@
             "_id": "422ac252-4689-4f33-bb80-055ce998e2c6",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
-            "name": "exam-delete",
+            "name": "delete-exam",
             "url": "http://127.0.0.1:5000/api/exam/delete/{{myExamId}}/{{myId}}",
             "method": "DELETE",
             "sortNum": 40000,
@@ -466,17 +466,17 @@
             "_id": "ba016959-858d-4ee5-aaeb-9a598fa45ae4",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "8ad0a544-acd5-4f78-ae07-5f91644b4691",
-            "name": "user-attained-exam",
-            "url": "http://127.0.0.1:5000/api/user/examattained/{{userid}}",
+            "name": "get-user-attained-exam",
+            "url": "http://127.0.0.1:5000/api/user/examattained/{{myId}}",
             "method": "GET",
             "sortNum": 40000,
             "created": "2023-08-16T12:01:59.728Z",
-            "modified": "2023-08-16T15:09:38.703Z",
+            "modified": "2023-08-17T16:19:59.582Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "{{token}}"
+                "bearer": "{{myJwt}}"
             },
             "tests": []
         },
@@ -531,7 +531,7 @@
             "_id": "b9ea0caf-0911-4505-a512-c596ad38d0a8",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
-            "name": "get-user-upcoming-exam",
+            "name": "get-user-hosted-upcoming-exam",
             "url": "http://127.0.0.1:5000/api/exam/hosted/upcoming/{{myId}}",
             "method": "GET",
             "sortNum": 50000,
@@ -554,7 +554,7 @@
             "_id": "9baf70dc-c810-4565-bfb0-d83e6f8da129",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "0af805a2-d8a8-41d1-88de-f727930d790a",
-            "name": "get-user-past-exams",
+            "name": "get-user-hosted-past-exams",
             "url": "http://127.0.0.1:5000/api/exam/hosted/past/{{myId}}",
             "method": "GET",
             "sortNum": 60000,

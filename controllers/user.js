@@ -21,27 +21,6 @@ exports.getUser = (req, res) => {
   res.json({ success: true, user: profile });
 };
 
-exports.updateUser = (req, res) => {
-  const { profile, body } = req;
-  let data = Object.keys(body);
-  data.map((v) => {
-    profile[v] = body[v];
-  });
-  profile.save((err, user) => {
-    if (err || !user) {
-      return res
-        .status(404)
-        .json({ success: false, error: "Unable to update." });
-    }
-    const { name, email, userinfo } = user;
-    res.json({
-      success: true,
-      data: { name, email, userinfo },
-      message: "User updated successfully",
-    });
-  });
-};
-
 exports.getUsers = async (req, res) => {
   try {
     let users = await User.find();
@@ -67,10 +46,31 @@ exports.getUsers = async (req, res) => {
   }
 };
 
+exports.updateUser = (req, res) => {
+  const { profile, body } = req;
+  let data = Object.keys(body);
+  data.map((v) => {
+    profile[v] = body[v];
+  });
+  profile.save((err, user) => {
+    if (err || !user) {
+      return res
+        .status(404)
+        .json({ success: false, error: "Unable to update." });
+    }
+    const { name, email, userinfo } = user;
+    res.json({
+      success: true,
+      data: { name, email, userinfo },
+      message: "User updated successfully",
+    });
+  });
+};
+
 exports.getUserUpcomingExam = async (req, res) => {
   try {
-    let users = req.profile;
-    let exams = users.upcomingexams.map((e) => {
+    let user = req.profile;
+    let exams = user.upcomingexams.map((e) => {
       return new Promise(async (resolve, reject) => {
         try {
           let exam = await Exam.findById(e.examid).populate("host", "_id name");
@@ -96,8 +96,8 @@ exports.getUserUpcomingExam = async (req, res) => {
 
 exports.getUserAttainedExam = async (req, res) => {
   try {
-    let users = req.profile;
-    let exams = users.examattained.map((e) => {
+    let user = req.profile;
+    let exams = user.examattained.map((e) => {
       return new Promise(async (resolve, reject) => {
         try {
           let exam = await Exam.findById(e.examid).populate("host", "_id name");
