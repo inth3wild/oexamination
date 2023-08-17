@@ -21,10 +21,10 @@ exports.createAnswer = async (req, res) => {
     let start = Date.parse(exam.startingtime);
     let end = Date.parse(exam.endingtime);
     let now = Date.parse(Date());
-
     if (
       exam.candidates.find((v) => String(v.id) === String(profile._id)) &&
-      now > start &&
+      // now > start &&  ***(Original), can only create answer when exam start date has passed
+      now < start &&
       now < end
     ) {
       let answer = await Answer.findOne({
@@ -115,45 +115,6 @@ exports.editAnswer = async (req, res) => {
   }
 };
 
-// exports.getAnswerByhost = async (req, res) => {
-//   try {
-//     const { profile } = req;
-//     const { exam_id, candidate_id } = req.query;
-//     let exam = await Exam.findById(exam_id);
-//     if (String(exam.host) === String(profile._id)) {
-//       let answer = await Answer.find({
-//         examid: exam_id,
-//         candidateid: candidate_id,
-//       });
-//       res.json({ success: true, message: "Answer fetched", data: answer });
-//     } else {
-//       throw "You are not host of this exam";
-//     }
-//   } catch (error) {
-//     res.json({
-//       success: false,
-//       error: error.message || error,
-//     });
-//   }
-// };
-// exports.getAnswerByCandidate = async (req, res) => {
-//   try {
-//     const { profile } = req;
-//     const { answer_id } = req.query;
-//     let answer = await Answer.findById(answer_id);
-//     if (String(answer.candidateid) === String(profile._id)) {
-//       res.json({ success: true, message: "Answer fetched", data: answer });
-//     } else {
-//       throw "You are not candidate of this exam";
-//     }
-//   } catch (error) {
-//     res.json({
-//       success: false,
-//       error: error.message || error,
-//     });
-//   }
-// };
-
 exports.exitAnswer = async (req, res) => {
   try {
     const { profile, exam, answer, body } = req;
@@ -186,39 +147,6 @@ exports.exitAnswer = async (req, res) => {
     });
   }
 };
-
-// exports.getAnswerList = async (req, res) => {
-//   try {
-//     const { profile, exam, answer } = req;
-//     let start = Date.parse(exam.startingtime);
-//     let end = Date.parse(exam.endingtime);
-//     let now = Date.parse(Date());
-//     if (
-//       profile.examattained.find(
-//         (v) =>
-//           String(v.examid) === String(exam._id) &&
-//           String(v.answerid) === String(answer._id)
-//       ) &&
-//       now > start &&
-//       now < end &&
-//       (String(answer.candidateid) === String(profile._id) ||
-//         String(exam.host) === String(profile._id))
-//     ) {
-//       answer.exited = body.exited;
-//       await answer.save();
-//       res.json({
-//         success: true,
-//       });
-//     } else {
-//       throw "You cannot create Answer now";
-//     }
-//   } catch (error) {
-//     res.status(400).json({
-//       success: false,
-//       error: error.message || error,
-//     });
-//   }
-// };
 
 // find all answers of a exam after the ending time and user must be host of the exam and also populate the candidate _id,name and email
 exports.getAllAnswerOfExam = async (req, res) => {
@@ -276,3 +204,75 @@ exports.getAnswerOfCandidate = async (req, res) => {
     });
   }
 };
+
+// exports.getAnswerByhost = async (req, res) => {
+//   try {
+//     const { profile } = req;
+//     const { exam_id, candidate_id } = req.query;
+//     let exam = await Exam.findById(exam_id);
+//     if (String(exam.host) === String(profile._id)) {
+//       let answer = await Answer.find({
+//         examid: exam_id,
+//         candidateid: candidate_id,
+//       });
+//       res.json({ success: true, message: "Answer fetched", data: answer });
+//     } else {
+//       throw "You are not host of this exam";
+//     }
+//   } catch (error) {
+//     res.json({
+//       success: false,
+//       error: error.message || error,
+//     });
+//   }
+// };
+// exports.getAnswerByCandidate = async (req, res) => {
+//   try {
+//     const { profile } = req;
+//     const { answer_id } = req.query;
+//     let answer = await Answer.findById(answer_id);
+//     if (String(answer.candidateid) === String(profile._id)) {
+//       res.json({ success: true, message: "Answer fetched", data: answer });
+//     } else {
+//       throw "You are not candidate of this exam";
+//     }
+//   } catch (error) {
+//     res.json({
+//       success: false,
+//       error: error.message || error,
+//     });
+//   }
+// };
+
+// exports.getAnswerList = async (req, res) => {
+//   try {
+//     const { profile, exam, answer } = req;
+//     let start = Date.parse(exam.startingtime);
+//     let end = Date.parse(exam.endingtime);
+//     let now = Date.parse(Date());
+//     if (
+//       profile.examattained.find(
+//         (v) =>
+//           String(v.examid) === String(exam._id) &&
+//           String(v.answerid) === String(answer._id)
+//       ) &&
+//       now > start &&
+//       now < end &&
+//       (String(answer.candidateid) === String(profile._id) ||
+//         String(exam.host) === String(profile._id))
+//     ) {
+//       answer.exited = body.exited;
+//       await answer.save();
+//       res.json({
+//         success: true,
+//       });
+//     } else {
+//       throw "You cannot create Answer now";
+//     }
+//   } catch (error) {
+//     res.status(400).json({
+//       success: false,
+//       error: error.message || error,
+//     });
+//   }
+// };

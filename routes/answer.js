@@ -18,6 +18,7 @@ router.param("userId", getUserById);
 router.param("examId", getExamById);
 router.param("answerId", getAnswerById);
 
+// Create Answer
 router.get(
   "/answer/:userId/:examId",
   isSignedIn,
@@ -25,6 +26,7 @@ router.get(
   createAnswer
 );
 
+// Edit answer
 router.put(
   "/answer/:userId/:examId/:answerId",
   isSignedIn,
@@ -32,6 +34,7 @@ router.put(
   editAnswer
 );
 
+// Exit answer
 router.put(
   "/answer/exit/:userId/:examId/:answerId",
   isSignedIn,
@@ -39,6 +42,7 @@ router.put(
   exitAnswer
 );
 
+// Get all answers for exam
 router.get(
   "/host/answers/:userId/:examId",
   isSignedIn,
@@ -46,6 +50,7 @@ router.get(
   getAllAnswerOfExam
 );
 
+// Get answers for candidate
 router.post(
   "/candidate/answer/:userId/:examId",
   isSignedIn,

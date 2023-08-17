@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "oexamination",
-    "dateExported": "2023-08-17T16:23:29.072Z",
+    "dateExported": "2023-08-17T16:59:48.589Z",
     "version": "1.1",
     "folders": [
         {
@@ -161,17 +161,17 @@
             "_id": "65bd28d5-ddf1-4359-82d2-ed5110c07101",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "fefc3c84-312e-486c-a4b3-5300adb19cba",
-            "name": "answer-create",
-            "url": "http://127.0.0.1:5000/api/answer/{{userid}}/{{examid}}",
+            "name": "create-answer",
+            "url": "http://127.0.0.1:5000/api/answer/{{myId}}/{{myExamId}}",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-08-16T12:01:59.721Z",
-            "modified": "2023-08-16T15:10:13.969Z",
+            "modified": "2023-08-17T16:35:58.956Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "{{token}}"
+                "bearer": "{{myJwt}}"
             },
             "tests": []
         },
@@ -250,22 +250,22 @@
             "_id": "920f6ab1-2acd-468e-b0d9-2f31312a9a72",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "fefc3c84-312e-486c-a4b3-5300adb19cba",
-            "name": "answer-edit",
-            "url": "http://127.0.0.1:5000/api/answer/{{userid}}/{{examid}}/{{answerid}}",
+            "name": "edit-answer",
+            "url": "http://127.0.0.1:5000/api/answer/{{myId}}/{{myExamId}}/{{answerid}}",
             "method": "PUT",
             "sortNum": 20000,
             "created": "2023-08-16T12:01:59.722Z",
-            "modified": "2023-08-16T15:10:30.512Z",
+            "modified": "2023-08-17T16:57:36.356Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"answers\":[{\"questionid\":\"60c89b513ec28c0ee7cb1159\",\"optionid\":\"60c89b513ec28c0ee7cb115b\"},{\"questionid\":\"60c89b513ec28c0ee7cb115c\",\"optionid\":\"60c89b513ec28c0ee7cb115e\"}]\n}",
+                "raw": "{\n  \"answers\": [\n    {\n      \"questionid\": \"60c89b513ec28c0ee7cb1159\",\n      \"optionid\": \"60c89b513ec28c0ee7cb115b\"\n    },\n    {\n      \"questionid\": \"60c89b513ec28c0ee7cb115c\",\n      \"optionid\": \"60c89b513ec28c0ee7cb115e\"\n    }\n  ]\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "{{token}}"
+                "bearer": "{{myJwt}}"
             },
             "tests": []
         },
@@ -379,7 +379,7 @@
             "_id": "f33137ea-fba6-455a-8f14-08b5eeab0860",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "fefc3c84-312e-486c-a4b3-5300adb19cba",
-            "name": "answer-exit",
+            "name": "exit-answer",
             "url": "http://127.0.0.1:5000/api/answer/exit/{{userid}}/{{examid}}/{{answerid}}",
             "method": "PUT",
             "sortNum": 30000,
@@ -402,7 +402,7 @@
             "_id": "0c176c98-8997-4973-816d-ac990afba483",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "fefc3c84-312e-486c-a4b3-5300adb19cba",
-            "name": "get-all-ans",
+            "name": "get-all-answers",
             "url": "http://127.0.0.1:5000/api/host/answers/{{userid}}/{{examid}}",
             "method": "GET",
             "sortNum": 37500,
@@ -507,7 +507,7 @@
             "_id": "41d63571-c506-4a8d-9055-ed8f58af05d1",
             "colId": "863f2b87-6266-4777-8c6b-8cea1fecf1ae",
             "containerId": "fefc3c84-312e-486c-a4b3-5300adb19cba",
-            "name": "get-answer-byCandidate",
+            "name": "get-answer-by-candidate",
             "url": "http://127.0.0.1:5000/api/candidate/answer/{{userid}}/{{examid}}?answer_id={{answerid}}",
             "method": "GET",
             "sortNum": 47500,
